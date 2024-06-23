@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recordatorio</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center mb-4">Recordatorios más cercanos</h1>
+        <div class="card">
+            <div class="card-header">
+                Detalles del recordatorio
+            </div>
+            <div class="card-body">
+                {% if data %}
+                    <p class="card-text"><strong>ID:</strong> {{ data.id }}</p>
+                    <p class="card-text"><strong>Medicine Name:</strong> {{ data.medicineName }}</p>
+                    <p class="card-text"><strong>Reminder Time:</strong> {{ data.reminderTime }}</p>
+                    <p class="card-text"><strong>State:</strong> {{ data.state }}</p>
+                {% else %}
+                    <p class="card-text">No data available</p>
+                {% endif %}
+            </div>
+            <div class="card-footer">
+                &copy; PulseCare 2024
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}
