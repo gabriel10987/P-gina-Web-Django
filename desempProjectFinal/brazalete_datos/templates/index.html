@@ -1,24 +1,28 @@
 {% extends "layout.html" %}
 {% load static %}
 {% block content %}
-<div id="carouselExampleIndicators" class="carousel slide">
+<!--
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three/examples/js/loaders/GLTFLoader.js"></script>
+-->
+<div id="carouselExampleIndicators" class="carousel slide animate__animated animate__backInDown">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="{% static 'images/pulsera_carrusel.png' %}" class="img-carrusel" alt="...">
+      <img src="{% static 'images/pulsera_carrusel.png' %}" class="img-carrusel color-carr" alt="...">
     </div>
     <div class="contenedor-z">
-      <h3>Nuestra pulsera</h3>
-        <p>PulseCare Características Principales: Intuitiva, conectividad 
+      <h3>Nuestro brazalete</h3>
+        <p>Pulse Care Características Principales: Intuitiva, conectividad 
           y Monitoreo Remoto, Diseño Ergonómico y Elegante, 
           Batería de Larga Duración</p>
-      <a class="btn-personal" href="#">Ver mis recordatorios</a>
+      <a class="btn-personal" href="{% url 'brazalete_datos:fetch_reminders' %}">Ver mis recordatorios</a>
     </div>
   </div>
 </div>
-<div class="container mt-3">
+<div class="container mt-3 animate__animated animate__backInDown">
   <div class="row">
     <div class="col-md-6">
       <h3>Sobre nosotros</h3>
@@ -30,28 +34,28 @@
         y fácil de usar. Nuestro producto estrella es una pulsera inteligente 
         diseñada específicamente para recordar a los usuarios cuándo deben 
         tomar sus medicamentos.</p>
-      <a href="{% url 'brazalete_datos:about_us' %}" class="btn btn-info">Mas información</a>
+      <a href="{% url 'brazalete_datos:about_us' %}" class="btn pers">Mas información</a>
     </div>
   </div>
 </div>
 <!-- Testimonials Section -->
-<div class="container mt-3">
+<div class="container mt-3 animate__animated animate__backInDown">
   <div class="testimonials">
       <h2>Testimonios</h2>
       <div class="container">
         <div class="row">
           <div class="col-md-4 testimonial-item">
-            <img src="{% static 'images/user.png' %}" alt="User 1">
+            <img src="{% static 'images/user-2.png' %}" alt="User 1" class="user">
             <h5>Juan Pérez</h5>
             <p>"PulseCare me ha ayudado a nunca olvidar mis medicamentos. ¡Es una maravilla!"</p>
           </div>
           <div class="col-md-4 testimonial-item">
-            <img src="{% static 'images/user.png' %}" alt="User 2">
+            <img src="{% static 'images/user-2.png' %}" alt="User 2">
             <h5>María López</h5>
             <p>"La app es muy fácil de usar y el botón de emergencia me da mucha tranquilidad."</p>
           </div>
           <div class="col-md-4 testimonial-item">
-            <img src="{% static 'images/user.png' %}" alt="User 3">
+            <img src="{% static 'images/user-2.png' %}" alt="User 3">
             <h5>Carlos Gómez</h5>
             <p>"Desde que uso PulseCare, mis cuidadores también están más tranquilos."</p>
           </div>
@@ -59,5 +63,11 @@
       </div>
     </div>
 </div>
+<!--
+<canvas id='myCanvas'></canvas>
+
+<script src="{% static 'js/pulsera-cargado.js' %}"></script>
+-->
 <!-- Testimonials Section END -->
+
 {% endblock %}

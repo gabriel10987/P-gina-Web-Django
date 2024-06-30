@@ -1,31 +1,59 @@
 {% extends "layout.html" %}
 {% load static %}
 {% block content %}
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Medecine name</th>
-          <th scope="col">Reminder Time</th>
-          <th scope="col">Description</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% if data %}
-        
-          {% for key, value in data.items %}
+  <div class="container-fluid full-height-section">
+    <h2>Todos los recordatorios</h2>
+    <div class="container">
+      <table class="table animate__animated animate__fadeIn">
+        <thead class="thead-dark">
           <tr>
-            <th scope="row">{{ key }}</th>
-            <td>{{ value.medicineName }}</td>
-            <td>{{ value.reminderTime }}</td>
-            <td>{{ value.description }}</td>
+            <th scope="col">Id</th>
+            <th scope="col">Medecine name</th>
+            <th scope="col">Reminder Time</th>
+            <th scope="col">Description</th>
           </tr>
-          {% endfor%}
-        {% else %}
-        <tr>
-          <td colspan="4">No data available</p>
-        </tr>
-        {% endif %}
-    </table>
+        </thead>
+        <tbody>
+          {% if reminders %}
+            {% for key, value in reminders.items %}
+              <tr>
+                <th scope="row">{{ key }}</th>
+                <td>{{ value.medicineName }}</td>
+                <td>{{ value.reminderTime }}</td>
+                <td>{{ value.description }}</td>
+              </tr>
+            {% endfor%}
+          {% else %}
+            <tr>
+              <td colspan="4">No data available</p>
+            </tr>
+          {% endif %}
+      </table>
+    </div>
 
+    <hr class="hr-custom">
+
+
+    <div class="card animate__animated animate__fadeIn">
+        <div class="card-header">
+            Recordatorio más cercano
+        </div>
+        <div class="card-body">
+            {% if closest_reminder %}
+                <p class="card-text"><strong>ID:</strong> {{ closest_reminder.id }}</p>
+                <p class="card-text"><strong>Medicine Name:</strong> {{ closest_reminder.medicineName }}</p>
+                <p class="card-text"><strong>Reminder Time:</strong> {{ closest_reminder.reminderTime }}</p>
+                <p class="card-text"><strong>State:</strong> {{ closest_reminder.state }}</p>
+            {% else %}
+                <p class="card-text">No data available</p>
+            {% endif %}
+        </div>
+        <div class="card-footer">
+            &copy; PulseCare 2024
+        </div>
+    </div>
+  </div>
+  <script>
+    gsap.from(".card", {duration: 1, y: 50, opacity: 0, stagger: 0.3});
+  </script>
 {% endblock %}

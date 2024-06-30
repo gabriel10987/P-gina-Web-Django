@@ -12,28 +12,26 @@ def help(request):
     return render(request, 'help.html')
 
 def fetch_reminders(request):
-    ref = db.reference('/reminders')
-    
-    data = ref.get()
-    
+    ref_reminders = db.reference('/reminders')
+    reminders = ref_reminders.get()
+
+    ref_closest_reminder = db.reference('/closestReminders')
+    closest_reminder = ref_closest_reminder.get()
+
     # Formatear la fecha
-    print("imprimiendo datos")
-    #print(data)
-    for d, valor in data.items():
-        #print("imprimiendo d")
-        #print("clave: " + str(d))
-        #print("valor: " + str(valor))
+    if closest_reminder:
+        reminder_time = closest_reminder.get('reminderTime')
+        if reminder_time:
+            # Convertir el timestamp a una fecha legible
+            closest_reminder['reminderTime'] = datetime.fromtimestamp(reminder_time / 1000).strftime('%d/%m/%Y %H:%M:%S')
+
+    for d, valor in reminders.items():
         if valor:
             reminder_time = valor["reminderTime"]
         if reminder_time:
-            # Convertir el timestamp a una fecha legible
             valor['reminderTime'] = datetime.fromtimestamp(reminder_time / 1000).strftime('%d/%m/%Y %H:%M:%S')
-    #print("datos formateados")
-    #print(data)
-
-    
     context = {
-        'data': data
+        'reminders': reminders,
+        'closest_reminder': closest_reminder
     }
     return render(request, 'closest_reminders.html', context)
-

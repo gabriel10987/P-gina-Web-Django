@@ -4,6 +4,11 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
  */
 
+ :root {
+  --azul-oscuro: #263341;
+  --plomo-muy-claro: #EAEBE6;
+}
+
 body {
   padding-top: 54px;
 }
@@ -13,6 +18,20 @@ body {
     padding-top: 56px;
   }
 }
+
+
+.navbar{
+  background-color: var(--azul-oscuro);
+}
+
+.nav-link{
+  color: var(--plomo-muy-claro) !important;
+}
+
+.footer-pers{
+  background-color: var(--azul-oscuro);
+}
+
 
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
@@ -52,6 +71,10 @@ body {
   width: 100%; /* Asegura que la imagen ocupe todo el ancho */
 }
 
+.color-carr{
+  background-color: var(--plomo-muy-claro);
+}
+
 .contenedor-z{
   position: absolute;
   top: 50%;
@@ -61,7 +84,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: white;
+  color: var(--azul-oscuro);
 }
 
 a:link,
@@ -71,14 +94,24 @@ a:visited {
 }
 .btn-personal{
   display: inline-block;
-  background-color: rgb(89, 112, 216);
+  background-color: var(--azul-oscuro);
   padding: 6px 12px 6px 12px;
   border-radius: 10px;
   text-decoration: none;
-  color: white;
+  color: var(--plomo-muy-claro);
   box-shadow: 0px 2px 5px rgb(0, 0, 0); /* Define la sombra */
   font-size: 18px;
   margin-bottom: 20px;
+}
+
+.btn-personal:hover{
+  background-color: var(--plomo-muy-claro);
+  color: var(--azul-oscuro);
+}
+
+.pers{
+  background-color: var(--azul-oscuro);
+  color: var(--plomo-muy-claro);
 }
 
 @media (max-width: 399px) {
@@ -108,13 +141,17 @@ a:visited {
   margin-bottom: 1rem;
 }
 
+.modelo3d{
+  width: 100%;
+  height: 500px;
+}
 
 /* Sarai estilos */
 .jumbotron {
-  background-image: url("../images/pulsercar.jpg");
+  background-color: var(--plomo-muy-claro);
   background-size: cover;
   background-position: center;
-  color: white;
+  color: var(--azul-oscuro);
   padding: 5rem 1rem;
 }
 .main-content {
@@ -130,45 +167,77 @@ a:visited {
   height: auto;
   border-radius: 10px;
 }
+.btn-link{
+  text-decoration: none;
+  color: var(--plomo-muy-claro);
+}
+.btn-link:hover{
+  color: var(--plomo-muy-claro);
+  text-decoration: none;
+}
+
+.card-header{
+  background-color: var(--azul-oscuro) !important;
+  color: var(--plomo-muy-claro) !important;
+}
+
+.card-body{
+  background-color: var(--plomo-muy-claro) !important;
+  color: var(--azul-oscuro) !important;
+}
 
 /*David terminado*/
-.card {
-  margin-bottom: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  background-color: #C3D6DD; /* Fondo de las tarjetas */
-}
-.card-title {
-  font-size: 1.75rem;
-  margin-bottom: 20px;
-  color: #263341; /* Título de la tarjeta */
-}
-.card-text {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-  color: #263341; /* Texto de la tarjeta */
-}
-.card-header {
-  background-color: #5E96A5; /* Fondo del encabezado de la tarjeta */
-  color: white;
-  font-size: 1.25rem;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-}
-.card-footer {
-  background-color: #A7D8DD; /* Fondo del pie de la tarjeta */
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  text-align: center;
-  color: #263341; /* Texto del pie de la tarjeta */
-}
+
 
 table{
   table-layout: fixed; /* Establece un diseño fijo para la tabla */
-  width: 50%;
 }
 th, td {
   overflow: hidden; /* Oculta el desbordamiento del contenido */
   text-overflow: ellipsis; /* Añade puntos suspensivos al texto que desborda */
   white-space: nowrap; /* Evita el salto de línea */
+}
+.full-height-section {
+  min-height: 81vh; /* 90% de la altura del viewport */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.thead-dark th{
+  background-color: var(--azul-oscuro) !important;
+  color: var(--plomo-muy-claro) !important;
+  border-color: var(--plomo-muy-claro) !important;
+}
+
+.hr-custom{
+  border: none;
+  height: 2px; /* Ajustar según sea necesario */
+  background-color: var(--azul-oscuro); /* Cambiar a tu color deseado */
+}
+
+
+
+/* probando cosas random*/
+#dropzone {
+  width: 300px;
+  height: 300px;
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 20px auto;
+}
+
+#dropzone.over {
+  border-color: #00f;
+  background-color: #f0f8ff;
+}
+
+.draggable {
+  width: 150px;
+  cursor: grab;
 }
