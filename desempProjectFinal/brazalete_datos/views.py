@@ -11,16 +11,26 @@ def about_us(request):
 def help(request):
     return render(request, 'help.html')
 
-def fetch_closest_reminders(request):
-    ref = db.reference('/closestReminders')
+def fetch_reminders(request):
+    ref = db.reference('/reminders')
+    
     data = ref.get()
-
+    
     # Formatear la fecha
-    if data:
-        reminder_time = data.get('reminderTime')
+    print("imprimiendo datos")
+    #print(data)
+    for d, valor in data.items():
+        #print("imprimiendo d")
+        #print("clave: " + str(d))
+        #print("valor: " + str(valor))
+        if valor:
+            reminder_time = valor["reminderTime"]
         if reminder_time:
             # Convertir el timestamp a una fecha legible
-            data['reminderTime'] = datetime.fromtimestamp(reminder_time / 1000).strftime('%d/%m/%Y %H:%M:%S')
+            valor['reminderTime'] = datetime.fromtimestamp(reminder_time / 1000).strftime('%d/%m/%Y %H:%M:%S')
+    #print("datos formateados")
+    #print(data)
+
     
     context = {
         'data': data

@@ -162,3 +162,13 @@ a:visited {
   text-align: center;
   color: #263341; /* Texto del pie de la tarjeta */
 }
+
+table{
+  table-layout: fixed; /* Establece un diseño fijo para la tabla */
+  width: 50%;
+}
+th, td {
+  overflow: hidden; /* Oculta el desbordamiento del contenido */
+  text-overflow: ellipsis; /* Añade puntos suspensivos al texto que desborda */
+  white-space: nowrap; /* Evita el salto de línea */
+}
