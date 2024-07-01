@@ -24,6 +24,19 @@ body {
   background-color: var(--azul-oscuro);
 }
 
+.navbar-brand{
+  color: var(--plomo-muy-claro);
+}
+
+.navbar-brand:link, .navbar-brand:visited{
+  color: var(--plomo-muy-claro);
+  text-decoration: none;
+}
+
+.navbar-nav{
+  margin-left: auto !important;
+}
+
 .nav-link{
   color: var(--plomo-muy-claro) !important;
 }
@@ -31,6 +44,24 @@ body {
 .footer-pers{
   background-color: var(--azul-oscuro);
 }
+
+.btn-login, .btn-logout, .btn-man, .btn-reg{
+  background-color: var(--plomo-muy-claro);
+  color: var(--azul-oscuro) !important;
+  margin-right: 10px;
+  margin-left: 10px;
+  box-shadow: 0px 2px 8px rgb(0, 0, 0, 0.5);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transiciones suaves con cubic-bezier */
+}
+
+.btn-login:hover, .btn-logout:hover, .btn-man:hover, .btn-reg:hover{
+  background-color: var(--azul-oscuro);
+  color: var(--plomo-muy-claro) !important;
+  
+  transform: scale(1.05); /* Escala el botón al 110% de su tamaño original */
+  box-shadow: 0px 8px 30px rgba(255, 255, 255, 0.8); /* Sombra más pronunciada en hover */
+}
+
 
 
 /* CUSTOMIZE THE CAROUSEL
@@ -87,11 +118,7 @@ body {
   color: var(--azul-oscuro);
 }
 
-a:link,
-a:visited {
-  color: white;
-  text-decoration: none; /* Quita cualquier subrayado */
-}
+
 .btn-personal{
   display: inline-block;
   background-color: var(--azul-oscuro);
@@ -103,6 +130,9 @@ a:visited {
   font-size: 18px;
   margin-bottom: 20px;
 }
+.btn-personal:link, .btn-personal:visited{
+  text-decoration: none; /* Quita cualquier subrayado */
+}
 
 .btn-personal:hover{
   background-color: var(--plomo-muy-claro);
@@ -110,8 +140,17 @@ a:visited {
 }
 
 .pers{
-  background-color: var(--azul-oscuro);
+  background-color: var(--azul-oscuro) !important;
   color: var(--plomo-muy-claro);
+}
+
+.pers:link, .pers:visited{
+  text-decoration: none; /* Quita cualquier subrayado */
+}
+
+.pers:hover{
+  background-color: var(--plomo-muy-claro) !important;
+  color: var(--azul-oscuro);
 }
 
 @media (max-width: 399px) {
@@ -176,12 +215,12 @@ a:visited {
   text-decoration: none;
 }
 
-.card-header{
+.card-header-esp {
   background-color: var(--azul-oscuro) !important;
   color: var(--plomo-muy-claro) !important;
 }
 
-.card-body{
+.card-body-esp {
   background-color: var(--plomo-muy-claro) !important;
   color: var(--azul-oscuro) !important;
 }

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .firebase import db
 from datetime import datetime
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     return render(request, 'index.html')
@@ -11,6 +12,7 @@ def about_us(request):
 def help(request):
     return render(request, 'help.html')
 
+@login_required
 def fetch_reminders(request):
     ref_reminders = db.reference('/reminders')
     reminders = ref_reminders.get()

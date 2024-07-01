@@ -1,6 +1,7 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,7 +26,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'brazalete_datos:fetch_reminders' %}">Tabla</a>
+              <a class="nav-link" href="{% url 'brazalete_datos:fetch_reminders' %}">Recordatorios</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'brazalete_datos:about_us' %}">Acerca de</a>
@@ -34,6 +35,21 @@
               <a class="nav-link" href="{% url 'brazalete_datos:help' %}">Ayuda</a>
             </li>
           </ul>
+          {% if user.is_authenticated %}
+              {% url 'account_email' as email_url %}
+              {% url 'socialaccount_connections' as socialaccount_url %}
+              {% if email_url or socialaccount_url %}
+                  <a href="{% if email_url %}{{ email_url }}{% else %}{{ socialaccount_url }}{% endif %}"
+                     class="btn btn-man">{% translate "Manage Account" %}</a>
+              {% endif %}
+              <a href="{% url 'account_logout' %}" class="btn btn-logout">{% translate "Sign Out" %}</a>
+          {% else %}
+              <a href="{% url 'account_login' %}" class="btn btn-login">{% translate "Sign In" %}</a>
+              {% url 'account_signup' as signup_url %}
+              {% if signup_url %}
+                  <a href="{{ signup_url }}" class="btn btn-reg">{% translate "Sign Up" %}</a>
+              {% endif %}
+          {% endif %}
         </div>
       </div>
     </nav>
